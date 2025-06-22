@@ -7,7 +7,7 @@
 package main
 
 import (
-	"github.com/rthornton128/goncurses"
+	"github.com/linuxsmiths/goncurses"
 	"log"
 )
 
