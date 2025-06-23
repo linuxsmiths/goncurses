@@ -7,8 +7,8 @@
 package goncurses
 
 /*
-#cgo !darwin,!openbsd pkg-config: menu
-#cgo darwin openbsd LDFLAGS: -lmenu
+#cgo !darwin,!openbsd pkg-config: menuw
+#cgo darwin openbsd LDFLAGS: -lmenuw
 #include <menu.h>
 #include <stdlib.h>
 
