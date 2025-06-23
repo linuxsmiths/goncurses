@@ -4,7 +4,7 @@
 
 package goncurses
 
-// #cgo !darwin,!openbsd,!windows pkg-config: ncurses
+// #cgo !darwin,!openbsd,!windows pkg-config: ncursesw
 // #include <curses.h>
 import "C"
 
@@ -17,6 +17,7 @@ const (
 )
 
 type Char C.chtype
+type WChar C.wchar_t
 
 // Text attributes
 const (

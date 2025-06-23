@@ -40,6 +40,19 @@ func (w *Window) MoveAddChar(y, x int, ach Char) {
 	C.mvwaddch(w.win, C.int(y), C.int(x), C.chtype(ach))
 }
 
+// AddWChar prints a single unicode character to the window. The character
+// cannot be OR'd together with attributes and colors. Use AttrOn() before the
+// call to AddWChar() to set the attributes and colors for the character.
+func (w *Window) AddWChar(wch WChar) {
+	C.waddnwstr(w.win, (*C.wchar_t)(unsafe.Pointer(&wch)), 1)
+}
+
+// MoveAddChar prints a single character to the window at the specified
+// y x coordinates. See AddWChar for more info.
+func (w *Window) MoveAddWChar(y, x int, wch WChar) {
+	C.mvwaddnwstr(w.win, C.int(y), C.int(x), (*C.wchar_t)(unsafe.Pointer(&wch)), 1)
+}
+
 // Turn off character attribute.
 func (w *Window) AttrOff(attr Char) (err error) {
 	if C.ncurses_wattroff(w.win, C.int(attr)) == C.ERR {
